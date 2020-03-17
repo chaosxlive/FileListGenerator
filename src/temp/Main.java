@@ -10,8 +10,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -150,7 +152,8 @@ public class Main {
 				int option = Main.exportPath.showSaveDialog(frame);
 				if(option == JFileChooser.APPROVE_OPTION) {
 					try {
-						Main.writer = new BufferedWriter(new FileWriter(Main.exportPath.getSelectedFile()));
+						Main.writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Main.exportPath.getSelectedFile()), StandardCharsets.UTF_8));
+//						Main.writer = new BufferedWriter(new FileWriter(Main.exportPath.getSelectedFile()));
 						Main.writer.write(Main.resultArea.getText());
 						Main.writer.close();
 					} catch (IOException e1) {
