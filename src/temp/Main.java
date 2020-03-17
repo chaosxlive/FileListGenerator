@@ -2,20 +2,16 @@ package temp;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.event.ComponentAdapter;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
-import java.util.StringTokenizer;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -112,7 +108,6 @@ public class Main {
 				if(Main.pathRoot.getText().length() == 0) {
 					return;
 				}
-				System.out.println(Main.pathRoot.getText());
 				Main processing = new Main();
 				try {
 					processing.startListing(Main.pathRoot.getText());
@@ -178,7 +173,6 @@ public class Main {
 		Main.stringBuilder = new StringBuilder();
 		loop(path);
 		Main.resultArea.setText(Main.stringBuilder.toString());
-		System.out.println(Main.stringBuilder.toString().split(".mp3").length);
 	}
 	
 	private void loop(String path) throws IOException {
