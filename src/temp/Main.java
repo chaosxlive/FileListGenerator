@@ -183,6 +183,7 @@ public class Main {
 	
 	private void loop(String path) throws IOException {
 		File file = new File(path);
+		if(!file.exists()) return;
 		String[] paths = file.list();
 		for(String p : paths) {
 			for(int i = 0; i < Main.layer; i++) {
